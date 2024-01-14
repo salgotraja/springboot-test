@@ -1,15 +1,17 @@
 package io.js.test.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 @Entity
 @Table(name = "customers")
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
 
     @Id
