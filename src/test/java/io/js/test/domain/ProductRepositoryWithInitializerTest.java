@@ -1,12 +1,14 @@
 package io.js.test.domain;
 
 import io.js.test.infra.PostgresDatabaseContainerInitializer;
+import io.js.test.infra.TestContainerConfiguration;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.math.BigDecimal;
@@ -17,7 +19,8 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
-@ContextConfiguration(initializers = {PostgresDatabaseContainerInitializer.class})
+//@ContextConfiguration(initializers = {PostgresDatabaseContainerInitializer.class})
+@Import(TestContainerConfiguration.class)
 public class ProductRepositoryWithInitializerTest {
     @Autowired
     private ProductRepository productRepository;
